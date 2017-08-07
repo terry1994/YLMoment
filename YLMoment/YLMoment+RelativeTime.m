@@ -56,11 +56,11 @@ static NSString * const kYLMomentRelativeTimeStringTable = @"YLMomentRelativeTim
 
   // Compute the time interval
   double referenceTime = [self.date timeIntervalSinceDate:date];
-  double seconds       = round(fabs(referenceTime));
-  double minutes       = round(seconds / 60.0f);
-  double hours         = round(minutes / 60.0f);
-  double days          = round(hours / 24.0f);
-  double years         = round(days / 365.0f);
+  double seconds       = ceill(fabs(referenceTime));
+  double minutes       = ceill(seconds / 60.0f);
+  double hours         = ceill(minutes / 60.0f);
+  double days          = ceill(hours / 24.0f);
+  double years         = ceill(days / 365.0f);
 
   // Build the formatted string
   NSString *formattedString = @"";
@@ -95,7 +95,7 @@ static NSString * const kYLMomentRelativeTimeStringTable = @"YLMomentRelativeTim
   }
   else if (days < 345) {
     formattedString = [localBundle localizedStringForKey:@"MM" value:@"%d months" table:kYLMomentRelativeTimeStringTable];
-    unit            = floor(days / 30);
+    unit            = ceill(days / 30);
   }
   else if (years == 1) {
     formattedString = [localBundle localizedStringForKey:@"y" value:@"a year" table:kYLMomentRelativeTimeStringTable];
