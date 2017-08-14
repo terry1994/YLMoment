@@ -19,11 +19,14 @@ Pod::Spec.new do |s|
   s.source_files        = ['YLMoment/*.{h,m}']
   s.ios.resource_bundle = { 'YLMoment-iOS' => ['YLMoment/Localization/*.lproj'] }
   s.osx.resource_bundle = { 'YLMoment-OSX' => ['YLMoment/Localization/*.lproj'] }
+  s.tvos.resource_bundle = { 'YLMoment-OSX' => ['YLMoment/Localization/*.lproj'] }
 
   s.ios.framework = 'Foundation'
   s.osx.framework = 'Foundation'
+  s.tvos.framework = 'Foundation'
 
   s.ios.deployment_target     = '5.0'
   s.osx.deployment_target     = '10.8'
+  s.tvos.deployment_target    = '9.0'
   s.watchos.deployment_target = '3.0'
 end
